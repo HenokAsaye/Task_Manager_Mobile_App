@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
-
-
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
-
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
-
 class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
     final nameController = TextEditingController();
-
-
-
-
     @override
     void dispose(){
       emailController.dispose();
@@ -40,17 +32,24 @@ class _SignUpPageState extends State<SignUpPage> {
                 fontWeight:FontWeight.bold
               )
             ),
-
             SizedBox(height: 16),
             TextFormField(
               controller: nameController,
               decoration: InputDecoration(
-                hintText:'',
-                labelText: 'Full Name',
-                border: OutlineInputBorder(),
+                hintText:'Full Name',
+                contentPadding: const EdgeInsets.all(20),
+                enabledBorder:OutlineInputBorder(
+                  borderSide:BorderSide(
+                      color:Colors.grey.shade300,
+                      width:2
+                  ),
+                  borderRadius: BorderRadius.circular(10)
+                ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(color: Colors.black, width:2)
+                  borderSide: BorderSide(
+                    width: 1.5
+                  ),
+                  borderRadius: BorderRadius.circular(10)
                 )
               ),
             ),
@@ -58,12 +57,18 @@ class _SignUpPageState extends State<SignUpPage> {
             TextFormField(
               controller: emailController,
               decoration:InputDecoration(
-                hintText:"",
-                labelText:"Email",
-                border:OutlineInputBorder(),
+                hintText:"Email",
+                contentPadding:const EdgeInsets.all(20),
+                enabledBorder:OutlineInputBorder(
+                    borderSide:BorderSide(
+                      color:Colors.grey.shade300,
+                      width:2
+                    ),
+                    borderRadius:BorderRadius.circular(10)
+                ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(color:Colors.black, width:2)
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color:Colors.black, width:1.5)
                 )
               )
             ),
@@ -72,14 +77,18 @@ class _SignUpPageState extends State<SignUpPage> {
               obscureText: true,
               controller: passwordController,
               decoration: InputDecoration(
-                hintText: "",
-                labelText:"Password",
-                border:OutlineInputBorder(
-                  borderSide: BorderSide(color:Color(0xFFD3D3D3) )
+                hintText: "Password",
+                contentPadding:EdgeInsets.all(20),
+                enabledBorder:OutlineInputBorder(
+                  borderSide:BorderSide(
+                    color:Colors.grey.shade300,
+                    width:1.5
+                  ),
+                  borderRadius:BorderRadius.circular(10)
                 ),
                 focusedBorder:OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(color:Colors.black,width:2)
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color:Colors.black,width:1.5)
                 )
               ),
             ),
@@ -101,12 +110,26 @@ class _SignUpPageState extends State<SignUpPage> {
                   fontSize: 15
                 )
              )
+             ),
 
-             )
+            SizedBox(height:20),
+            RichText(
+            text:
+              TextSpan(text:'Already have an Account?',
+                style:Theme.of(context).textTheme.titleMedium,
+                children:[
+                  TextSpan(
+                    text:"Sign In",
+                    style: TextStyle(
+                      fontWeight:FontWeight.bold,
+                    )
+                  )
+              ]
+              )
+              )
           ],
       )
       )
-,
     );
   }
 }
