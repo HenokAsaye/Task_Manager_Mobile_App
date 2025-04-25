@@ -3,14 +3,12 @@ import 'package:frontend/features/auth/pages/signup.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
+  static MaterialPageRoute route() => MaterialPageRoute(builder:(context) => const loginPage());
 
   @override
   State<loginPage> createState() => _loginPageState();
 }
-
 class _loginPageState extends State<loginPage> {
-  @override
-  Widget build(BuildContext context) {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
     final formKey = GlobalKey<FormState>();
@@ -22,7 +20,8 @@ class _loginPageState extends State<loginPage> {
       passwordController.dispose();
       super.dispose();
     }
-
+  @override
+  Widget build(BuildContext context) {
 
     void signInUser(){
       if(formKey.currentState!.validate()){
